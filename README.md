@@ -1,4 +1,4 @@
-# CVLab_Med
+# InCVLab
 
 **MaMIS** is a research codebase for **3D medical image generation**, latent-space diffusion modeling, and downstream conditional synthesis tasks. The repository supports latent diffusion generation and ControlNet-guided synthesis for anatomical or lesion-conditioned image generation.
 
@@ -87,7 +87,11 @@ docker exec -it cvlab_med bash
 
 ## Pretrained Models
 
-Pretrained checkpoints can be downloaded from:
+The `VAE` checkpoint can be downloaded directly from the NVIDIA project:
+
+[autoencoder_v2](https://huggingface.co/nvidia/NV-Generate-MR/tree/main/models)
+
+Pretrained `diffusion` and `controlnet` checkpoints can be downloaded from:
 
 [Google Drive checkpoint folder](https://drive.google.com/drive/folders/13HbNrBMjmKk2qUOcnuLXJbH-WyH6INv8?usp=drive_link)
 
@@ -128,7 +132,7 @@ The diffusion model is trained on latent embeddings extracted from the VAE encod
 
 `--meta_path` should point to a JSONL metadata file containing the training samples.
 
-Use 'multi_res', 'bucket_batch_size', and 'bucket_batch_mode' for multi-resolution training.
+Use `--multi_res`, `--bucket_batch_size`, and `--bucket_batch_mode` for multi-resolution training.
 
 Example command:
 
@@ -197,7 +201,7 @@ Trained checkpoints are saved under:
 models/{model_name}/
 ```
 
-Use 'pixdim_map' for multi-class training. Spacing is used in transforms to normalize all labels to the same spacing as the latent embeddings.
+Use `--pixdim_map` for multi-class training. Spacing is used in transforms to normalize all labels to the same spacing as the latent embeddings.
 
 The classes must have the same number of IDs in the label.
 
